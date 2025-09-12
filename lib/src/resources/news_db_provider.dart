@@ -22,7 +22,7 @@ class NewsDbProvider {
               id INTEGER PRIMARY KEY,
               type TEXT,
               by TEXT.
-              time INTEGET,
+              time INTEGER,
               text TEXT,
               parent INTEGER,
               kids BLOB,
