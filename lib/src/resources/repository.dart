@@ -4,8 +4,14 @@ import 'news_db_provider.dart';
 import '../models/item_model.dart';
 
 class Repository {
-  NewsDbProvider dbProvider = NewsDbProvider();
-  NewsApiProvider apiProvider = NewsApiProvider();
+  List<Source> sources = <Source>[
+    NewsDbProvider(),
+    newsDbProvider
+  ];
+
+  List<Cache> caches = <Cache>[
+    newsDbProvider
+  ];
 
   Future<List<int>> fetchTopIds() async  {
     return apiProvider.fetchTopIds();
