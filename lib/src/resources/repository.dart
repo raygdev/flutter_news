@@ -13,8 +13,10 @@ class Repository {
     newsDbProvider
   ];
 
+  // Get fetchTopIds implemented
   Future<List<int>> fetchTopIds() async  {
-    return apiProvider.fetchTopIds();
+    // look into all this casting. It doesn't feel right.
+    return sources[1].fetchTopIds() as List<int>;
   }
 
   Future<ItemModel> fetchItem(int id) async {
