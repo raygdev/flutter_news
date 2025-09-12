@@ -18,16 +18,22 @@ class Repository {
   }
 
   Future<ItemModel> fetchItem(int id) async {
-    var item = await dbProvider.fetchItem(id);
+    ItemModel? item;
+    Source source;
 
-    if(item != null) {
-      return item;
+    for (source in sources) {
+      item = await source.fetchItem(id);
+
+      if(item != null) {
+        break;
+      }
+
     }
 
-    item = await apiProvider.fetchItem(id);
-    dbProvider.addItem(item);
-
-    return item;
+    for(var cache in caches) {
+      cache.addItem(item as ItemModel);
+    }
+      return item as ItemModel;
   }
 }
 
