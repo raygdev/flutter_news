@@ -4,8 +4,9 @@ import 'dart:io';
 import 'package:path/path.dart';
 import 'dart:async';
 import '../models/item_model.dart';
+import 'repository.dart';
 
-class NewsDbProvider {
+class NewsDbProvider implements Source, Cache {
   late Database db;
 
   init() async {
@@ -50,6 +51,11 @@ class NewsDbProvider {
       return ItemModel.fromDb(maps.first);
     }
 
+    return null;
+  }
+
+  @override
+  Future<List<int>>? fetchTopIds() {
     return null;
   }
 
