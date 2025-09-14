@@ -16,7 +16,7 @@ class Repository {
   // Get fetchTopIds implemented
   Future<List<int>> fetchTopIds() async  {
     // look into all this casting. It doesn't feel right.
-    return sources[1].fetchTopIds() as List<int>;
+    return await sources[1].fetchTopIds() as List<int>;
   }
 
   Future<ItemModel> fetchItem(int id) async {
