@@ -5,8 +5,8 @@ import '../models/item_model.dart';
 
 class Repository {
   List<Source> sources = <Source>[
-    NewsDbProvider(),
-    newsDbProvider
+    newsDbProvider,
+    NewsApiProvider(),
   ];
 
   List<Cache> caches = <Cache>[
